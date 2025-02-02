@@ -17,7 +17,7 @@ const path = require("path");
 const TEST_FIREBASE_PROJECT_ID = "test-firestore-rules-project";
 
 // TODO: Change this to your real Firebase Project ID
-const REAL_FIREBASE_PROJECT_ID = "changeme";
+const REAL_FIREBASE_PROJECT_ID = "emulator-suite-dexter";
 
 const firebase = require("@firebase/rules-unit-testing");
 
@@ -39,7 +39,7 @@ const bobAuth = {
 
 before(async () => {
   // Discover which emulators are running and where by using the Emulator Hub
-  // This assumes the hub is running at 127.0.0.1:4400 (the default), you can check
+  // This assumes the hub is running at    (the default), you can check
   // by looking for the "Emulator Hub running at 127.0.0.1:<port>" line in the
   // logs from firebase emulators:start
   const emulatorSettings = await firebase.discoverEmulators();
@@ -179,7 +179,7 @@ describe("shopping cart items", async () => {
   });
 });
 
-describe.skip("adding an item to the cart recalculates the cart total. ", () => {
+describe("adding an item to the cart recalculates the cart total. ", () => {
   const admin = firebase.initializeAdminApp({ 
     projectId: REAL_FIREBASE_PROJECT_ID 
   }).firestore();
@@ -189,7 +189,7 @@ describe.skip("adding an item to the cart recalculates the cart total. ", () => 
   });
 
   it("should sum the cost of their items", async () => {
-    if (REAL_FIREBASE_PROJECT_ID === "changeme") {
+    if (REAL_FIREBASE_PROJECT_ID === "emulator-suite-dexter") {
       throw new Error("Please change the REAL_FIREBASE_PROJECT_ID at the top of the test file");
     }
 
