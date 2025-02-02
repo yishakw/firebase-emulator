@@ -189,7 +189,7 @@ describe("adding an item to the cart recalculates the cart total. ", () => {
   });
 
   it("should sum the cost of their items", async () => {
-    if (REAL_FIREBASE_PROJECT_ID === "emulator-suite-dexter") {
+    if (REAL_FIREBASE_PROJECT_ID === "changename") {
       throw new Error("Please change the REAL_FIREBASE_PROJECT_ID at the top of the test file");
     }
 
